@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+        <link href="style.css">
+    </head>
+    <body>
+        <div id="vue-app">
+            <h2> {{ greet('afternoon') }} </h2>
+            <p> Name: {{ name }} </p>
+            <p> Job {{ job }} </p>
+
+            <h1> Data Binding </h1>
+            <a v-bind:href="website"> The Net Ninja</a>
+            <input type="text" v-bind:value="job">
+            <p v-html="websiteTag"></p>
+
+
+            <h2> Event </h2>
+            <button v-on:click.once="add(1)"> Add a Year </button>
+            <button v-on:click="subtract(1)"> Subtract a Year </button>
+            <button v-on:dblclick="add(10)"> Add 10 Years </button>
+            <button v-on:dblclick="subtract(10)"> Subtract 10 Years </button>
+            <p> My age is {{ age }} </p>
+            <div id="canvas" v-on:mousemove="updateXY"> {{ x }}, {{ y }} </div>
+            <a v-on:click.prevent="click" href="http://wwww.thenetninja.co.uk"> Click me</a>
+
+            <h2> Keyborad Event </h2>
+            <label> Name : </label>
+            <input type="text" v-on:keyup.enter="logName">
+            <label> Age : </label>
+            <input type="text" v-on:keyup.enter="logAge">
+
+
+            <h2> Two way binding </h2>
+            <label> Name : </label>
+            <input type="text" v-model="nameTwoBinding"> <span> {{ nameTwoBinding }} </span>
+            <label> Age : </label>
+            <input type="text" v-model="ageTwoBinding"> <span> {{ ageTwoBinding }} </span>
+
+
+            <h2> Computed Properties </h2>
+            <button v-on:click="a++"> Add to A </button>
+            <button v-on:click="b++"> Add to B </button>
+            <p> A - {{ a }} </p>
+            <p> B - {{ b }} </p>
+
+            <!-- For Computed Properties -->
+            <p> Age + A = {{ addToA }} </p>
+            <p> Age + B = {{ addToB }} </p>
+
+            <!-- For Method 
+            <p> Age + A = {{ addToA() }} </p>
+            <p> Age + B = {{ addToB() }} </p>
+            -->
+
+
+        </div>
+        <script src="app.js"></script>
+
+    </body>
+</html>
