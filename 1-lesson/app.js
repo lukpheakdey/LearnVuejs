@@ -13,7 +13,11 @@ new Vue ({
 
         ageAdd: 20,
         a: '',
-        b:''
+        b:'',
+
+        available: true,
+        nearby: false
+
     },
     methods: {
         greet: function(time){

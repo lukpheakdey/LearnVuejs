@@ -1,7 +1,7 @@
 <html>
     <head>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
-        <link href="style.css">
+        <link href="../1-lesson/style.css">
     </head>
     <body>
         <div id="vue-app">
@@ -53,6 +53,13 @@
             <p> Age + B = {{ addToB() }} </p>
             -->
 
+
+            <h1> Dynamic CSS Class </h1>
+            <h2> Example 1 </h2>
+            <div v-bind:class="{available: available}"> 
+                <span> Pheakdey </span> 
+            </div>
+            <h2> Example 2 </h2>
 
         </div>
         <script src="app.js"></script>

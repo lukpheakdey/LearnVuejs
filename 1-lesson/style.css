@@ -4,3 +4,20 @@
     text-align: center;
     border: 1px solid rgba(27, 14, 214, 0.2);
 }
+
+span {
+    background: rgb(247, 9, 48);
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+    margin: 10px 0;
+}
+
+.available span {
+    background: rgb(9, 153, 74);
+}
+
+.nearby span:after {
+    content: "nearby";
+    margin-left: 10px;
+}
