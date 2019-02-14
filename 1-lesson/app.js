@@ -15,8 +15,18 @@ new Vue ({
         a: '',
         b:'',
 
-        available: true,
-        nearby: false
+        available: false,
+        nearby: false,
+
+        error: false,
+        success: false,
+
+        programmings: ['NodeJS', 'Express', 'Angular', 'VueJs'],
+        developers: [
+            { name: 'Pheakdey', age: 27},
+            { name: 'David', age: 30 },
+            { name: 'John', age: 22 }
+        ]
 
     },
     methods: {
@@ -61,6 +71,13 @@ new Vue ({
         addToB: function() {
             console.log('AddToB');
             return this.b + this.ageAdd;
-        }     
+        },
+        
+        compClasses: function() {
+            return {
+                available: this.available,
+                nearby: this.nearby
+            }
+        }
     }
 });

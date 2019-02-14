@@ -13,6 +13,13 @@ span {
     margin: 10px 0;
 }
 
+.not-color span {
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+    margin: 10px 0;
+}
+
 .available span {
     background: rgb(9, 153, 74);
 }

@@ -1,46 +1,61 @@
 <html>
     <head>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
-        <link href="../1-lesson/style.css">
+        <link href="style.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
+    <div class="container">
         <div id="vue-app">
-            <h2> {{ greet('afternoon') }} </h2>
+
+            <center> <h1> Learning about Vue.js </h1> </center>
+
+            <hr>
+            <h3> {{ greet('afternoon') }} </h3>
             <p> Name: {{ name }} </p>
             <p> Job {{ job }} </p>
 
-            <h1> Data Binding </h1>
+
+            <hr>
+            <h3> Data Binding </h3>
             <a v-bind:href="website"> The Net Ninja</a>
             <input type="text" v-bind:value="job">
             <p v-html="websiteTag"></p>
 
-
-            <h2> Event </h2>
-            <button v-on:click.once="add(1)"> Add a Year </button>
-            <button v-on:click="subtract(1)"> Subtract a Year </button>
-            <button v-on:dblclick="add(10)"> Add 10 Years </button>
-            <button v-on:dblclick="subtract(10)"> Subtract 10 Years </button>
+            <hr>
+            <h3> Event </h3>
+            <button v-on:click.once="add(1)" class="btn btn-outline-primary"> Add a Year </button>
+            <button v-on:click="subtract(1)" class="btn btn-outline-danger"> Subtract a Year </button>
+            <button v-on:dblclick="add(10)" class="btn btn-outline-info"> Add 10 Years </button>
+            <button v-on:dblclick="subtract(10)" class="btn btn-outline-danger"> Subtract 10 Years </button>
             <p> My age is {{ age }} </p>
             <div id="canvas" v-on:mousemove="updateXY"> {{ x }}, {{ y }} </div>
             <a v-on:click.prevent="click" href="http://wwww.thenetninja.co.uk"> Click me</a>
 
-            <h2> Keyborad Event </h2>
+            <hr>
+            <h3> Keyborad Event </h3>
             <label> Name : </label>
             <input type="text" v-on:keyup.enter="logName">
             <label> Age : </label>
             <input type="text" v-on:keyup.enter="logAge">
 
-
-            <h2> Two way binding </h2>
+            <hr>
+            <h3> Two way binding </h3>
             <label> Name : </label>
-            <input type="text" v-model="nameTwoBinding"> <span> {{ nameTwoBinding }} </span>
+            <input type="text" v-model="nameTwoBinding">
+                <p> {{ nameTwoBinding }} </p>
             <label> Age : </label>
-            <input type="text" v-model="ageTwoBinding"> <span> {{ ageTwoBinding }} </span>
+            <input type="text" v-model="ageTwoBinding"> 
+                <p> {{ ageTwoBinding }} </p>
 
 
-            <h2> Computed Properties </h2>
-            <button v-on:click="a++"> Add to A </button>
-            <button v-on:click="b++"> Add to B </button>
+            <h3> Computed Properties </h3>
+            <button v-on:click="a++" class="btn btn-outline-primary"> Add to A </button>
+            <button v-on:click="b++" class="btn btn-outline-info"> Add to B </button>
             <p> A - {{ a }} </p>
             <p> B - {{ b }} </p>
 
@@ -53,15 +68,48 @@
             <p> Age + B = {{ addToB() }} </p>
             -->
 
+            <hr>
+            <h3> Dynamic CSS Class </h3>
+            <h5> Example 1 </h5>
+            <!-- <div v-on:click="available =!available" v-bind:class="{available: available}"> 
+                <span> Pheakdey With Class </span> 
+            </div> -->
+            <h5> Example 2 </h5>
+            <button v-on:click="nearby =!nearby" class="btn btn-outline-primary"> Toggle Nearby </button>
+            <button v-on:click="available =!available" class="btn btn-outline-info"> Toggle Available </button>
+            <div v-bind:class="compClasses"> <span> Pheakdey Example 2 </span></div>
 
-            <h1> Dynamic CSS Class </h1>
-            <h2> Example 1 </h2>
-            <div v-bind:class="{available: available}"> 
-                <span> Pheakdey </span> 
-            </div>
-            <h2> Example 2 </h2>
+            <hr>
+            <h3> Conditional </h3>
+            <button v-on:click="error =! error" class="btn btn-outline-danger"> Toggle Error </button>
+            <button v-on:click="success =! success" class="btn btn-outline-success"> Toggle Success </button>
+            <!-- <p v-if="error"> There is error :( </p>
+            <p v-else-if="success"> Whooo success :) </p> -->
+            <p v-show="error"> There is error :( </p>
+            <p v-show="success"> Whooo success :) </p>
+
+            <hr>
+            <h3> Looping </h3>
+            <ul>
+                <li v-for="(programming, index) in programmings"> {{ index }} - {{ programming }} </li>
+            </ul>
+            <ul>
+                <li v-for="(developer,index) in developers"> {{ index }} - {{ developer.name }} {{ developer.age }} </li>
+            </ul>
+            <template v-for="(developer, index) in developers">
+                <h5> {{ index }} - {{ developer.name }} </h5>
+                <p> {{ developer.age }} </p>
+            </template>
+            <template v-for="developer in developers"> 
+                <div v-for="(key,val) in developer"> 
+                    <p> {{ key }} - {{ val }} </p>
+                </div>
+            </template>
+
+            
 
         </div>
+    </div>
         <script src="app.js"></script>
 
     </body>
